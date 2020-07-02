@@ -1,0 +1,61 @@
+:root{
+    --title-color: #5f3473;
+    --primary-color: #34cb79;
+}
+
+#page-post{
+    height: 100%;
+}
+.content{
+    height: 100%;
+    justify-content: center;
+    display: flex;
+}
+.content main{
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+main h1{
+    padding: 70px;
+    font-size: 54px;
+    color: #5f3473;
+}
+#page-post main p{
+    font-size: 24px;
+    line-height: 38px;
+    margin-top: 20px;
+}
+#tabela{
+    height: 100%;
+    margin:20px;
+    
+}
+#tabela h3{
+    padding: 10px;
+    text-align: center;
+}
+table{
+    font-family: arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(92, 92, 92, 0.774);
+    border-radius: 20px;
+
+}
+.id-post{
+    color: #5f3473;
+    
+}
+caption{
+    font-size: 24px;
+}
+
+td{
+    padding: 30px;
+    border-bottom:1px solid rgba(92, 92, 92, 0.774) ;
+    text-align: left;
+}
