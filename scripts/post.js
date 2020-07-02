@@ -27,7 +27,9 @@ async function carregarPost() {
     listaDePostagens.forEach(tabela => {
         $('#post').append(tabela);
     });
-    
+    $(document).ready( function () {
+        $('#corpo').DataTable();
+    } );
     
 }
 
@@ -48,6 +50,7 @@ function templatePost({
       
     `;
 }
+
 $(async function () {
     carregarPost()
 });

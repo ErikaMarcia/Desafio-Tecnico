@@ -46,6 +46,9 @@ table{
     border-radius: 20px;
 
 }
+label{
+    margin: 20px;
+}
 .id-post{
     color: #5f3473;
     

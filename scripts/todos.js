@@ -26,7 +26,10 @@ async function carregarTodos() {
     listaDeTodos.forEach(tabela => {
         $('#todos').append(tabela);
     });
-    
+
+    $(document).ready( function () {
+        $('#corpo').DataTable();
+    } );
     
 }
 

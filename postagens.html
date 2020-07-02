@@ -7,9 +7,11 @@
     <title>Postagens</title>
     <link rel="stylesheet" href="styles/postagens.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="/scripts/post.js"></script>
 </head>
 
@@ -19,8 +21,17 @@
             <main>
                 <h1>Postagens</h1>
                 <div id = "tabela">
-                    <table id="post">
-                        
+                    <table id="corpo" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Post</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody id="post">
+
+                        </tbody>
     
                     </table>
                 </div>

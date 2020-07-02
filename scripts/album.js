@@ -29,6 +29,9 @@ async function carregarAlbum() {
     listaDePostagens.forEach(tabela => {
         $('#album').append(tabela);
     });
+    $(document).ready( function () {
+        $('#corpo').DataTable();
+    } );
     
     
 }
