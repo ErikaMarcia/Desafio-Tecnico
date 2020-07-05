@@ -11,6 +11,10 @@
     justify-content: center;
     display: flex;
 }
+main{
+    width: 70%;
+    justify-content: center;
+}
 .content main{
     background-color: #fff;
     height: 100%;
@@ -20,7 +24,7 @@
     align-items: center;
 }
 main h1{
-    padding: 70px;
+    padding: 30px;
     font-size: 54px;
     color: #5f3473;
 }
@@ -32,33 +36,52 @@ main h1{
 #tabela{
     height: 100%;
     margin:20px;
-    
 }
 #tabela h3{
     padding: 10px;
     text-align: center;
+    
 }
 table{
     font-family: arial, sans-serif;
-    width: 100%;
+    padding: 10px;
     height: 100%;
-    border: 1px solid rgba(92, 92, 92, 0.774);
-    border-radius: 20px;
+    border-collapse: separate;
+    border-spacing: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.246);
 
 }
-label{
-    margin: 20px;
-}
-.id-post{
-    color: #5f3473;
-    
+main p{
+    font-size: 1em !important;
 }
 caption{
     font-size: 24px;
+} 
+/*   
+.comments td{
+    border:none;
+}*/
+.postagem{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.246);
+}
+td{
+    text-align: left;
 }
 
-td{
-    padding: 30px;
-    border-bottom:1px solid rgba(92, 92, 92, 0.774) ;
-    text-align: left;
+th{
+    color:var(--title-color);
+    text-align: center;
+    padding: 10px;
+    display: flex;
+}
+th img{
+    margin-right: 16px;
+    display: flex;
+    width: 30px;
+    height: 40px;
+}
+th strong{
+    margin-top: 7px;
+    
 }

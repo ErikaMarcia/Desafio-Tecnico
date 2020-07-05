@@ -32,7 +32,7 @@ header{
 }
 header div{
     right: 0;
-    max-width: 300px;
+    max-width: 30%;
     position: fixed;
     background-color:#5f3473 ;
     height: 100%;
