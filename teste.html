@@ -4,41 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postagens</title>
-    <link rel="stylesheet" href="styles/postagens.css">
+    <title>Todos</title>
+    <link rel="stylesheet" href="styles/todos.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="/scripts/teste.js"></script>
+
 </head>
 
 <body>
-    <div id="page-post">
+    <div id="page-todos">
         <div class="content">
+
             <main>
-                <h1>Postagens</h1>
-                <div id = "tabela">
+                <h1>Todos</h1>
+                <div id="tabela">
+
                     <table id="corpo" class="display" style="width:100%">
-                        
-                        
-    
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h3>Id</h3>
+                                </th>
+                                <th>
+                                    <h3>Usuario</h3>
+                                </th>
+                                <th>
+                                    <h3>Todos</h3>
+                                </th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="todos">
+                            
+                            
+                        </tbody>
+
                     </table>
                 </div>
-                
+
             </main>
+
             <header>
                 <div>
-                    <p class="menu">Menu</p>
-                <ul>
-                    <li><a href="/postagens.html"><img src="/assets/card.svg"><strong>Postagens</strong></a></li>
-                    <li><a href="/albuns.html"><img src="/assets/photo.svg"></span><strong>Albuns</strong></a></li>
-                    <li><a href="/todos.html"><img src="/assets/global.svg"></span><strong>Todos</strong></a></li>
-                    <li><a href="/index.html"><img src="/assets/back.svg"></span><strong>Vontar para home</strong></a>
-                    </li>
-                </ul>
+                    <p>Menu</p>
+                    <ul>
+                        <li><a href="/postagens.html"><img src="/assets/card.svg"><strong>Postagens</strong></a></li>
+                        <li><a href="/albuns.html"><img src="/assets/photo.svg"></span><strong>Albuns</strong></a></li>
+                        <li><a href="/todos.html"><img src="/assets/global.svg"></span><strong
+                                    id="opcao">Todos</strong></a></li>
+                        <li><a href="/index.html"><img src="/assets/back.svg"></span><strong>Vontar para
+                                    home</strong></a></li>
+                    </ul>
                 </div>
-                
+
             </header>
 
         </div>

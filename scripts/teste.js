@@ -1,118 +1,97 @@
-
-    async function carregarPost() {
-        console.log("=== INICIO DA PAGINA ===");
-        url = 'https://jsonplaceholder.typicode.com/posts/';
-        const resultadoDaApi = await fetch(url, {
-            method: 'GET'
-        });
-        const resultadoComoJson = await resultadoDaApi.json();
-        // Mexendo no array para pegar pedaços que eu quero
-
-        const postagens = resultadoComoJson.slice(0, 5);
-        // Limpar notícias
-
-        // Montando um array com os HTML das notícias
-        const listaDePostagens = [];
-        for (const postagem of postagens) {
-            const listaDeComentarios = await carregarComments(postagem.id);
-            listaDePostagens.push(
-                templatePost({
-                    id: postagem.id,
-                    titulo: postagem.title,
-                    corpo: postagem.body,
-                    listaDeComentarios: listaDeComentarios
-                })
-            );
-            console.log(listaDeComentarios);
-        }
-
-
-        // Inserindo o HTML criado de cada notícia usando jQuery
-
-        listaDePostagens.forEach(tabela => {
-            $('#post').append(tabela);
-        });
-
-
-    }
-
-
-    function templatePost({
-        id,
-        titulo,
-        corpo,
-        listaDeComentarios
-
-    }) {
-        return `
-        <tr>
-            <td><h3>${titulo}</h3>${corpo}</td>
-            <td>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Comentarios</th>
-                    </tr>
-                    
-                    </thead>
-                    <tbody id="comments">
-                        ${listaDeComentarios}                  
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        
-        
-        `;
-    }
-
-    $(async function () {
-        carregarPost()
+async function carregarUsers() {
+    console.log("=== INICIO DA PAGINA ===");
+    url = 'https://jsonplaceholder.typicode.com/users';
+    const resultadoDaApi = await fetch(url, {
+        method: 'GET'
     });
 
-    async function carregarComments(idPost) {
-        console.log("=== COMENTARIOS ===");
-        url = 'https://jsonplaceholder.typicode.com/posts/' + idPost + '/comments';
-        const resultadoDaApiC = await fetch(url, {
-            method: 'GET'
-        });
-        const cresultadoComoJson = await resultadoDaApiC.json();
-        // Mexendo no array para pegar pedaços que eu quero
-        const comentarios = cresultadoComoJson.slice(0, 4);
 
+    const resultadoComoJson = await resultadoDaApi.json();
 
+    const usuarios = resultadoComoJson.slice(0, 10);
 
-        // Montando um array com os HTML das notícias
-        const listaDeComentarios = comentarios.map(comentario => {
-            return templateComments({
-                tituloCom: comentario.name,
-                corpoCom: comentario.body,
-                email: comentario.email
-            });
-
+    const listaDeUsuarios = [];
+    for (const usuario of usuarios) {
+        const listaDeTodos = await carregarTodos(usuario.id);
+        listaDeUsuarios.push(templateAlbum({
+            id: usuario.id,
+            name: usuario.name,
+            username: usuario.username,
+            email: usuario.email,
+            listaDeTodos: listaDeTodos
         })
-        return new Promise((resolve) => {
-            resolve(listaDeComentarios);
+        );
+    }
+
+    listaDeUsuarios.forEach(tabela => {
+        $('#todos').append(tabela);
+    });
+    $(document).ready( function () {
+        $('#corpo').DataTable();
+    } );
+
+}
+
+
+function templateAlbum({
+    id,
+    name,
+    username,
+    email,
+    listaDeTodos
+}) {
+    return `
+    <tr>
+        <td>
+            <h3>${id}</h3>
+        </td>
+        <td>
+            <p>Nome: ${name}</p>
+            <p>Username: ${username}</p>
+            <p>Email: ${email}</p>
+        </td>
+        <td>
+            ${listaDeTodos}
+            
+        </td>
+    </tr>   
+    `;
+}
+
+$(async function () {
+    carregarUsers()
+});
+async function carregarTodos(idUser) {
+    console.log("=== COMENTARIOS ===");
+    url = 'https://jsonplaceholder.typicode.com/users/' + idUser + '/todos';
+    const resultadoDaApiT = await fetch(url, {
+        method: 'GET'
+    });
+    const tresultadoComoJson = await resultadoDaApiT.json();
+    // Mexendo no array para pegar pedaços que eu quero
+    const todos = tresultadoComoJson.slice(0, 10);
+
+    let listaDeTodos = ``;
+    // Montando um array com os HTML das notícias
+    for (const todo of todos) {
+        const tudo = templateTodos({
+            tituloT: todo.title
         });
 
+        listaDeTodos += tudo;
     }
+    
+    return new Promise((resolve) => {
+        resolve(listaDeTodos);
+    });
+}
 
+function templateTodos({
+    tituloT
 
-    function templateComments({
-        tituloCom,
-        corpoCom,
-        email
-
-    }) {
-        return `
-                <tr>
-                    <td>
-                        <h4>${tituloCom}</h4>${corpoCom}<p>${email}</p>
-                    </td>
-                </tr>
-            `;
-    }
-
-
-
+}) {
+    return `
+        <h4>${tituloT}</h4><hr>
+        `;
+}
 

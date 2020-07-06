@@ -1,6 +1,23 @@
 :root{
     --title-color: #5f3473;
-    --primary-color: #34cb79;
+    --primary-color: #ff9f4e;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--title-color);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+     /* creates padding around scroll thumb */
+}
+#opcao{
+    color: var(--primary-color); 
 }
 
 *{
@@ -71,3 +88,4 @@ ul li a {
     width: 30px;
     height: 40px;
 }
+

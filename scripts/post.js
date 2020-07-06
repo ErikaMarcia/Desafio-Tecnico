@@ -1,4 +1,3 @@
-
 async function carregarPost() {
     console.log("=== INICIO DA PAGINA ===");
     url = 'https://jsonplaceholder.typicode.com/posts/';
@@ -8,10 +7,11 @@ async function carregarPost() {
     const resultadoComoJson = await resultadoDaApi.json();
 
     const postagens = resultadoComoJson.slice(0, 10);
-  
+
     const listaDePostagens = [];
     for (const postagem of postagens) {
         const listaDeComentarios = await carregarComments(postagem.id);
+
         listaDePostagens.push(
             templatePost({
                 id: postagem.id,
@@ -23,41 +23,41 @@ async function carregarPost() {
         console.log(listaDeComentarios);
     }
 
-
     listaDePostagens.forEach(tabela => {
         $('#corpo').append(tabela);
     });
-
-
+    
 }
 
 
 function templatePost({
-    id,
     titulo,
     corpo,
     listaDeComentarios
 
 }) {
     return `
-    <tbody >
-        
+    <tbody >        
         <tr>
-            <td  class="postagem"><h3>${titulo}</h3>${corpo}</td>
-                <td>
-                    <table>
-                        <tbody class ="comments">
+            <td  class="postagem">
+                <h3> ${titulo} </h3>
+                ${corpo}
+            </td>
+            <td>
+                <table>
+                    <tbody class="comments">
                         <tr>
-                            <th><img src="./assets/bate-papo.svg"><strong>Comentários</strong></th>
+                            <th>
+                                <img src="./assets/bate-papo.svg">
+                                <strong>Comentários</strong>
+                            </th>
                         </tr>
                             ${listaDeComentarios}                  
-                        </tbody>
-                    </table>
-                </td>
+                    </tbody>
+                </table>
+            </td>
         </tr>                
     </tbody>
-        
-    
       
     `;
 }
@@ -76,23 +76,22 @@ async function carregarComments(idPost) {
     // Mexendo no array para pegar pedaços que eu quero
     const comentarios = cresultadoComoJson.slice(0, 2);
 
-
-
+    let listaDeComentarios = ``;
     // Montando um array com os HTML das notícias
-    const listaDeComentarios = comentarios.map(comentario => {
-        return templateComments({
+    for (const comentario of comentarios) {
+        const coment = templateComments({
             tituloCom: comentario.name,
             corpoCom: comentario.body,
             email: comentario.email
         });
 
-    })
+        listaDeComentarios += coment;
+    }
+    
     return new Promise((resolve) => {
         resolve(listaDeComentarios);
     });
-
 }
-
 
 function templateComments({
     tituloCom,
@@ -103,7 +102,9 @@ function templateComments({
     return `
             <tr>
                 <td>
-                    <h4>${tituloCom}</h4>${corpoCom}<p>${email}</p>
+                    <h4>${tituloCom}</h4>
+                    ${corpoCom}
+                    <p>${email}</p>
                 </td>
             </tr>
         `;

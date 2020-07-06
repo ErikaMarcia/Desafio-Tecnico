@@ -24,10 +24,12 @@ main h1{
     font-size: 54px;
     color: #5f3473;
 }
-#page-todos main p{
-    font-size: 24px;
-    line-height: 38px;
-    margin-top: 20px;
+h4{
+    padding: 10px;
+}
+main p{
+    font-size: 1em;
+    padding: 30px;
 }
 #tabela{
     height: 100%;
