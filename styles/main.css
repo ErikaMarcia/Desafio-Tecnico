@@ -4,17 +4,16 @@
 }
 
 body::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
+    width: 5px;             
 }
 
 body::-webkit-scrollbar-track {
-    background: var(--title-color);        /* color of the tracking area */
+    background: var(--title-color);     
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-     /* creates padding around scroll thumb */
+    background-color: var(--primary-color);  
+    border-radius: 20px;      
 }
 #opcao{
     color: var(--primary-color); 
